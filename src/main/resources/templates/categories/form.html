@@ -11,9 +11,13 @@
 <body>
     <br><br>
     <div class="ui container">
-        <h1 th:text="${title}"> </h1>
-        <a class="ui button primary" href="/categories">Cancel </a>
+        <h1>UAS JWP</h1>
+        <a href="/categories">category</a> . <a href="/books">book</a>
         <br><br><br>
+        <div>
+            <span style="font-size: 30px;" th:text="${title}"></span>
+        </div>
+        <br><br>
         <div class="ui grid">
             <div class="six wide column">
                 <form class="ui form" action="#" th:action="@{/categories/save}" th:object="${category}" method="post">
@@ -24,6 +28,7 @@
                     </div>
                     <br>
                     <input class="ui button primary" type="submit" value="Save">
+                    <a class="ui button primary" href="/categories">Cancel </a>
                 </form>
             </div>
         </div>
