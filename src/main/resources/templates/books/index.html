@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Master Book</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+    <br><br>
+    <div class="ui container">
+        <h1 th:text="${title}"></h1>
+        <a class="ui button green" href="/books/add">New</a>
+        <table class="ui table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Book Title</th>
+                    <th>ISBN</th>
+                    <th>Book Category</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}"> </td>
+                    <td th:text="${book.title}"> </td>
+                    <td th:text="${book.isbn}"> </td>
+                    <td th:text="${book.category.name}"> </td>
+                    <td>
+                        <a class="ui yellow button" th:href="@{/books/edit/{id}(id=${book.id})}">Edit </a>
+                        <a class="ui red button" th:href="@{/books/delete/{id}(id=${book.id})}">Delete </a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+
+</html>

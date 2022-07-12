@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Master Category</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+    <br><br>
+    <div class="ui container">
+        <h1 th:text="${title}"></h1>
+        <a class="ui button green" href="/categories/add">New</a>
+        <table class="ui table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Category Name</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="category : ${categories}">
+                    <td th:text="${category.id}"> </td>
+                    <td th:text="${category.name}"> </td>
+                    <td>
+                        <a class="ui button yellow" th:href="@{/categories/edit/{id}(id=${category.id})}">Edit </a>
+                        <a class="ui button red" th:href="@{/categories/delete/{id}(id=${category.id})}">Delete </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
